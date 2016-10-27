@@ -35,12 +35,27 @@ public class FragmentReplaceActivity extends AppCompatActivity {
             ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         ft.replace(R.id.fragment_container, fragment);
         if (addToStack)
-            ft.addToBackStack("stack");
+            ft.addToBackStack("");
         ft.commit();
     }
 
+    int count = 0;
+
     public void addNewFragment(View view) {
-        addFragment(new RandomColorFragment(), true, true);
+        RandomColorFragment randomColorFragment = new RandomColorFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("count", ++count);
+
+        Student student = new Student();
+        student.setAge(18);
+        student.setName("Akaki");
+        student.setSurname("Gociridze");
+        student.setSchool("51 Schrool");
+        student.setHighSchrool(true);
+        bundle.putParcelable("student", student);
+
+        randomColorFragment.setArguments(bundle);
+        addFragment(randomColorFragment, true, true);
     }
 
     @Override

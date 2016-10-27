@@ -24,7 +24,25 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_viewpager);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -39,7 +57,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 20;
+            return 2;
         }
     }
 

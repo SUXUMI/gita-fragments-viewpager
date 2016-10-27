@@ -1,5 +1,6 @@
 package gita.fragmentsandviewpager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -15,6 +18,8 @@ import java.util.Random;
  */
 
 public class RandomColorFragment extends Fragment {
+
+    private TextView studentInfoTV;
 
     int[] colorIds = {R.color.color1, R.color.color2, R.color.color3, R.color.color4, R.color.color5,
             R.color.color6, R.color.color7, R.color.color8, R.color.color8, R.color.color9,
@@ -30,6 +35,38 @@ public class RandomColorFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_random_color, container, false);
         int color = ContextCompat.getColor(getContext(), colorIds[new Random().nextInt(33)]);
         v.findViewById(R.id.background_color).setBackgroundColor(color);
+
+        studentInfoTV = (TextView) v.findViewById(R.id.student_info_text_view);
+
         return v;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        if (getArguments() != null) {
+            int count = getArguments().getInt("count");
+            Toast.makeText(getContext(), "I'm number = " + count, Toast.LENGTH_SHORT).show();
+
+            Student student = getArguments().getParcelable("student");
+            String studInfo = student.getAge() + "\n" + student.getPoint() + "\n" + student.getName();
+
+            studentInfoTV.setText(studInfo);
+        }
     }
 }
