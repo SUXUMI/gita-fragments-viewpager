@@ -24,6 +24,11 @@
             android:layout_height="wrap_content"
             android:text="Fragment Replace Activity"
             android:onClick="startFragmentReplaceActivity"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scroll View Activity"
+            android:onClick="startScrollViewActivity"/>
 
     </LinearLayout>
 </FrameLayout>

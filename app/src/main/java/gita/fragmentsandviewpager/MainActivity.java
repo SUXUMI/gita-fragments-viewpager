@@ -23,4 +23,8 @@ public class MainActivity extends AppCompatActivity {
     public void startViewPagerActivity(View view) {
         startActivity(new Intent(this, ViewPagerActivity.class));
     }
+
+    public void startScrollViewActivity(View view) {
+        startActivity(new Intent(this, ScrollViewActivity.class));
+    }
 }

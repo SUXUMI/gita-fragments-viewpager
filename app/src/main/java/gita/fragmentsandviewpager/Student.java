@@ -13,6 +13,7 @@ public class Student implements Parcelable {
     private String name, surname;
     private String school;
     private boolean highSchrool;
+    private StudentDetailedInfo studentDetailedInfo;
 
 
 
